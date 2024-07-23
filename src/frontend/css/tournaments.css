@@ -1,0 +1,380 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tournaments.css                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adpachec <adpachec@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 17:08:21 by adpachec          #+#    #+#             */
+/*   Updated: 2024/05/14 12:00:17 by adpachec         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+.tournament-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+	background: var(--black);
+	border-radius: 2vh;
+	opacity: 0.98;
+}
+
+.tournament-title {
+    color: var(--electric-blue);
+    margin-bottom: 3vh;
+}
+
+.btn-group {
+    margin-bottom: 5vh	;
+    justify-content: center;
+    display: flex;
+    gap: 5vh;
+}
+
+.button {
+    background-color: var(--index-red);
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    min-width: 200px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.tournament-filter {
+    width: 40vh;
+    padding: 1.5vh 1.5vh;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover {
+    background-color: var(--electric-blue);
+    transform: scale(1.1);
+}
+.tournament-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: start;
+    height: auto;
+    margin: 0 auto;
+}
+
+.tournament-entry {
+    background: var(--dark-grey);
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+	flex: 1 1 48%;
+    background-color: var(--bg-color);
+    box-shadow: 0 0px 10px #7200DA;
+	cursor: pointer;
+}
+
+.tournament-entry:hover {
+	transform: scale(1.05);
+	background-color: var(--black);
+}
+
+.tournament-entry h3 {
+    margin: 0 0 10px 0;
+}
+
+.tournament-details {
+    display: none;
+	transition: max-height 0.3s ease-out;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.tournament-entry:hover .tournament-details {
+    display: block;
+}
+
+.participants-container {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.participants-title {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.participants-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 5px;
+}
+
+.participant-name {
+    padding: 5px;
+    background-color: var(--dark-grey);
+    border-radius: 4px;
+}
+
+.tournament-details div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    gap: 2vh;
+}
+
+.view-tournament-btn, .join-tournament-btn {
+    margin-top: 10px;
+    font-size: 1.5vh;
+    flex-grow: 1;
+    margin: 0 5px;
+    padding: 8px 16px;
+    text-align: center;
+    font-size: calc(10px + 0.5vw);
+    
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.98);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #7200DA;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    transition: transform 0.3s ease-out;
+    text-align: center;
+}
+
+.close-button {
+    color: #7200DA;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: right;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #a62543;
+    text-decoration: none;
+}
+
+.modal-content {
+    animation: modalFadeIn 0.3s;
+}
+
+.tournament-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#create-tournament{
+    margin-top: 2vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification {
+    position: fixed;
+    width: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+    animation: fadeOut 5s forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification.success {
+    background-color: #28a745;
+}
+
+.notification.error {
+    background-color: #dc3545;
+}
+
+/* Estilo para el botón "Leave Tournament" */
+.leave-tournament-btn {
+    background-color: #dc3545; /* Bootstrap danger color */
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    min-width: 200px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.leave-tournament-btn:hover {
+    background-color: #c82333; /* Bootstrap darken danger color */
+    transform: scale(1.05);
+}
+
+@keyframes fadeOut {
+    90% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes modalFadeIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .tournament-container, .btn-group {
+        width: 90%;
+        margin: 10px auto;
+        padding: 10px;
+    }
+
+    .tournament-title {
+        font-size: 2.5vh;
+    }
+
+    .tournament-entry {
+        margin: 10px auto;
+        flex: none;
+    }
+
+    h4{
+        font-size: 2vh;
+    }
+
+    .btn-group {
+        gap: 2vh;
+    }
+    
+    .button {
+        width: 60%;
+        font-size: 1.2vh;
+        padding: 2vh 2vh;
+    }
+    
+    .button-div{
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .tournament-list {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tournament-entry {
+        width: 90%;
+        font-size: 1.75vh;
+    }
+    
+    .tournament-name {
+        font-size: 2.15vh;
+    }
+
+    .participants-title {
+        font-size: 1.75vh;
+    }
+    
+    .modal-content {
+        margin-top: 30vh;
+        width: 70%;
+    }
+
+    .tournament-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .form-group input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    .close-button {
+        color: #7200DA;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: right;
+    }
+    
+    .close-button:hover,
+    .close-button:focus {
+        color: #a62543; 
+        text-decoration: none;
+    }
+    
+    #create-tournament{
+        margin-top: 2vh;
+        align-items: center;
+        justify-content: center;
+    }
+}

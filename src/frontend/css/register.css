@@ -1,0 +1,130 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   register.css                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adpachec <adpachec@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/15 11:37:37 by adpachec          #+#    #+#             */
+/*   Updated: 2024/05/07 10:00:51 by adpachec         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+.register-container {
+	padding: 2vw;
+	margin-top: 15vh;
+	margin: 15vh auto 0 auto;
+    align-items: center;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: var(--bg-color);
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    width: 30%;
+    align-items: center;
+	text-align: center;
+}
+
+.register-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.register-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register-form button:hover {
+    background-color: #004494;
+}
+
+#error-message	{
+   	color: var(--arcade-red);
+	display: none;
+	text-align: center;
+	width: 100%;
+	margin-top: 3vh;
+}
+
+#register-msg{
+	color: var(--neon-green);
+	font-size: 2.5vh;
+	text-align: center;
+	width: 100%;
+	margin-top: 3vh;
+}
+
+@media (max-width: 1023px) {
+	
+	.register-container {
+		padding: 2vw;
+		margin-top: 15vh;
+		margin: 15vh auto 0 auto;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		background: var(--bg-color);
+		border-radius: 5px;
+		border: 2px solid var(--main-color);
+		box-shadow: 4px 4px var(--main-color);
+		width: 60%;
+		align-items: center;
+		text-align: center;
+		font-size: small;
+	}
+
+	.register-container #h2{
+		font-size: small;
+	}
+	
+	.register-form input {
+		width: 100%;
+		padding: 10px;
+		margin: 10px 0;
+		border-radius: 5px;
+		border: 1px solid #ccc;
+	}
+	
+	.register-form button {
+		width: 100%;
+		padding: 10px;
+		background-color: #0056b3;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+	
+	.register-form button:hover {
+		background-color: #004494;
+	}
+	
+	#error-message	{
+		   color: var(--arcade-red);
+		display: none;
+		text-align: center;
+		width: 100%;
+		margin-top: 3vh;
+	}
+
+	#register-msg{
+		color: var(--neon-green);
+		font-size: 2vh;
+	}
+}

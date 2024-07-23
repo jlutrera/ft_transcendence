@@ -1,0 +1,59 @@
+version: "3.8"
+
+services:
+    postgres:
+        container_name: postgres
+        image: postgres:16.2
+        env_file:
+            - .env
+        environment:
+            - "POSTGRES_HOST_AUTH_METHOD=trust"
+        expose:
+            - "5432"
+        networks:
+            - transcendence_net
+        restart: always
+
+    django:
+        container_name: django
+        build:
+            context: ../
+            dockerfile: docker/django/Dockerfile
+        image: django_transcendence
+        env_file:
+            - .env
+        environment:
+            - "POSTGRES_HOST_AUTH_METHOD=trust"
+            - "POSTGRES_HOST=postgres"
+            - "PIP_DISABLE_PIP_VERSION_CHECK=1"
+            - "PYTHONDONTWRITEBYTECODE=1"
+            - "PYTHONUNBUFFERED=1"
+            - "DEBUG=0"
+        expose:
+            - "8000"
+        networks:
+            - transcendence_net
+        depends_on:
+            - postgres
+        restart: always
+
+    nginx:
+        container_name: nginx
+        build:
+            context: ../../
+            dockerfile: src/docker/nginx/Dockerfile
+        image: nginx_transcendence
+        env_file:
+            - .env
+        ports:
+            - "8080:443"
+        networks:
+            - transcendence_net
+        restart: always
+
+networks:
+    transcendence_net:
+        name: transcendence_net
+        driver: bridge
+
+

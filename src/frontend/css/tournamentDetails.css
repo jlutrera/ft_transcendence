@@ -1,0 +1,200 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tournamentDetails.css                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adpachec <adpachec@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 18:11:45 by adpachec          #+#    #+#             */
+/*   Updated: 2024/05/14 11:55:47 by adpachec         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+.tournament-details-container {
+    display: flex;
+    flex-wrap: wrap;    
+    justify-content: center !important;
+    margin: 5vh auto;
+    padding: 20px;
+    background-color: var(--black);
+    border-radius: 2vh;
+    opacity: 0.98;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Header de la sección, título del torneo */
+.tournament-header {
+    width: 100%;
+    color: var(--electric-blue);
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo de las cards */
+.custom-card {
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--retro-purple);
+    margin-bottom: 20px;
+    text-align: center;
+
+    display: flex;        
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; 
+}
+
+.custom-card-header {
+    background: var(--electric-blue);
+    color: var(--white);
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 4vh !important;
+}
+
+/* Lista de próximos partidos y resultados anteriores */
+
+.custom-list-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 2vh !important;
+}
+
+.custom-list-item {
+    padding: 10px;
+    border-bottom: 1px solid var(--retro-purple);
+    text-align: center; /* Centra el texto para el nombre del partido */
+}
+
+.custom-list-item:not(:last-child) {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--retro-purple);
+}
+
+.match-title {
+    margin-bottom: 5px;
+}
+
+.match-result {
+    display: block;
+}
+
+/* Estilos de la tabla */
+
+.custom-table {
+    margin-top: 1rem;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+.custom-table th, .custom-table td {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-table thead th {
+    color: var(--white);
+    font-weight: 100;
+}
+
+.custom-table tbody td {
+    color: var(--black);
+    text-align: center;
+}
+
+.table-responsive {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.justify-content-around {
+    justify-content: center !important;
+}
+
+.my-4 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.mx-2 {
+    margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
+}
+
+@media (max-width: 1025px) {
+    .tournament-details-container {
+        flex-direction: column;
+        max-width: 100%;
+        margin-top: 3vh;
+        padding: 10px;
+        overflow-x: hidden; 
+    }
+
+    .tournament-header {
+        font-size: 1.5em;
+    }
+
+    .custom-card {
+        margin-bottom: 10px;
+        overflow-x: auto;
+        font-size: 1.5vh;
+    }
+
+    .card-header {
+        padding: 4px;
+        font-size: 2vh !important;
+    }
+
+    .custom-list-group, .custom-list-item {
+        padding: 4px;
+    }
+
+    .custom-table {
+        font-size: 0.8em;
+    }
+
+    .custom-table th, .custom-table td {
+        padding: 4px;
+    }
+
+    .custom-list-item{
+        font-size: 1.25vh;
+    }
+
+    .col-md-12{
+        width: 100% !important;
+    }
+
+    .col-lg-5 {
+        width: 100% !important;
+    }
+
+    .d-flex{
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 425px) {
+    
+    .custom-card {
+        margin-bottom: 10px;
+        overflow-x: auto;
+        font-size: 1vh;
+    }
+}

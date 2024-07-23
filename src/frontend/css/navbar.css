@@ -1,0 +1,214 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   navbar.css                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adpachec <adpachec@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/10 17:16:34 by adpachec          #+#    #+#             */
+/*   Updated: 2024/04/27 13:34:54 by adpachec         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* Navbar */
+.navbar {
+	background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-nav{
+	display: flex;
+	align-items: center;
+}
+
+.navbar-brand {
+    font-family: 'Press Start 2P', cursive; /* Una tipografía que evoca los videojuegos clásicos */
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.navbar-nav .nav-link {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8vw;
+	margin-right: 5vh; /* Espacio entre elementos de navegación */
+	display: inline;
+	text-align: center;
+    border-radius: 2vh;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--neon-green);
+    box-shadow: 0px 0px 5px var(--neon-green);
+    transform: scale(1.2);
+}
+
+.navbar-nav .nav-link.active {
+	box-shadow: 0px 0px 5px var(--neon-green);
+    transform: scale(1.2);
+    color: var(--neon-green);
+}
+
+.navbar .navbar-nav .btn {
+	display: inline-flex;
+    padding: 0.75vh 0.75vw; /* Tamaño del padding para centrar el texto */
+    margin-right: 0.5vw; /* Espacio entre botones */
+}
+
+.btn-outline-success, .btn-outline-danger {
+    padding: 1.5vh 1vw;
+    line-height: 1;
+    display: inline;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.btn-outline-success {
+    color: var(--electric-blue);
+    border-color: var(--electric-blue);
+	font-family: 'Press Start 2P', cursive;
+    font-size: 0.8vw;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--electric-blue);
+    color: var(--black);
+    transform: scale(1.2);
+}
+
+.btn-outline-danger {
+    color: var(--retro-purple);
+    border-color: var(--retro-purple);
+	font-family: 'Press Start 2P', cursive;
+    font-size: 0.8vw;
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--retro-purple);
+	border-color: var(--retro-purple);
+    color: var(--black);
+    transform: scale(1.1);
+}
+
+/* Logo */
+.logo {
+	border-radius: 20pt;
+	box-shadow: #FFFFFF;
+	border-color: #FFFFFF;
+	display: block;
+	width: 18vh;
+    max-width: fit-content;
+    box-shadow: 0px 0px 50px var(--border-purple);
+    object-fit: cover;
+    object-position: bottom;
+    margin-right: 5vh;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+/* User-info */
+
+.user-info {
+    position: relative;
+}
+
+.user-info .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    box-shadow: 0px 0px 20px var(--electric-blue);
+    width: 100%;
+    background-color: var(--black);
+    padding: 10px;
+}
+
+.user-info .nav-link:hover {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    box-shadow: 0px 0px 20px var(--electric-blue);
+    background-color: var(--black);
+}
+
+.user-info .rounded-circle {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.dropdown-menu {
+    right: 0;
+    width: 100%;
+}
+
+.user-info .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    background-color: var(--black);
+    color: white;
+    box-shadow: 0px 0px 20px var(--electric-blue);
+}
+
+.user-info .dropdown-item {
+    padding: 6px 10px;
+    color: white;
+    text-align: center;
+    background-color: var(--black);
+}
+
+.user-info .dropdown-menu .dropdown-item:hover {
+    background-color: var(--electric-blue);
+    color: var(--black);
+    border-radius: 2vh;
+}
+
+#link-logout:hover {
+    background-color: var(--index-red); 
+    color: var(--black);
+}
+
+@media (max-width: 1023px) {
+    
+    .navbar-nav .nav-link, .btn-outline-success, .btn-outline-danger {
+        font-size: 2.5vh;
+    }
+
+    .navbar-nav .nav-link{
+        margin-right: 0;
+    }
+
+    .btn-primary{
+        font-size: 2.5vh;
+    }
+
+    .btn-outline-success {
+        background-color: var(--electric-blue);
+        border-color: var(--electric-blue);
+        color: white;
+    }
+    
+    .btn-outline-success:hover {
+        background-color: var(--neon-green);
+        border-color: var(--electric-blue);
+        color: var(--black);
+    }
+    
+    .btn-outline-danger {
+        background-color: var(--retro-purple);
+        border-color: var(--retro-purple);
+        color: white;
+        margin-top: 1vh;
+    }
+    
+    .btn-outline-danger:hover {
+        background-color: var(--neon-green);
+        border-color: var(--retro-purple);
+        color: var(--black);
+    }
+
+}

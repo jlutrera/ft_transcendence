@@ -1,0 +1,182 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   login.css                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adpachec <adpachec@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/10 11:35:31 by adpachec          #+#    #+#             */
+/*   Updated: 2024/05/20 11:50:50 by adpachec         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+:root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --electric-blue: #0044FF;
+    --retro-purple: #7200DA;
+    --border-purple: #470089;
+    --neon-green: #33FF00;
+    --arcade-red: #FF0000;
+	--dark-arcade-red: #E4000F;
+	--index-red: #a62543;
+	--input-focus: #2d8cf0;
+	--font-color: var(--white);
+	--font-color-sub: #7e7e7e;
+	--bg-color: #111;
+	--bg-color-alt: #7e7e7e;
+	--main-color: var(--index-red);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    margin-top: 15vh;
+    width: 100%;
+    margin: 15vh auto 0 auto;
+    padding: 20px;
+  }
+  
+  /* card */ 
+  
+  .flip-card__inner {
+    width: 20%;
+    height: auto;
+    background-color: transparent;
+    perspective: 1000px;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .toggle:checked ~ .flip-card__inner {
+	transform: rotateY(180deg);
+  }
+  
+  .toggle:checked ~ .flip-card__front {
+	box-shadow: none;
+  }
+  
+  .flip-card__front, .flip-card__back {
+	  padding: 2vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: var(--bg-color);
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    width: 100%;
+    align-items: center;
+  }
+  
+  .flip-card__back {
+	width: 100%;
+	transform: rotateY(180deg);
+  }
+  
+  .flip-card__form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	width: 100%;
+  }
+  
+  .title {
+	margin: 20px 0 20px 0;
+	font-size: 2vw;
+	font-weight: 900;
+	text-align: center;
+	color: var(--main-color);
+  }
+  
+  .flip-card__input {
+	width: 100%;
+	height: auto;
+	border-radius: 5px;
+	border: 0.3vw solid var(--main-color);
+	background-color: var(--bg-color);
+	box-shadow: 0.2vw 0.2vw var(--border-purple);
+	font-size: 0.8vw;
+	font-weight: 600;
+	color: var(--font-color);
+	padding: 5px 10px;
+	outline: none;
+  }
+  
+  .flip-card__input::placeholder {
+	color: var(--font-color-sub);
+	opacity: 0.8;
+  }
+  
+  .flip-card__input:focus {
+	border: 0.3vw solid var(--neon-green);
+  }
+  
+  .flip-card__btn {
+	margin: 20px 0 20px 0;
+	width: 80%;
+	border-radius: 5px;
+	border: 0.3vw solid var(--main-color);
+	background-color: var(--bg-color);
+	box-shadow: 0.2vw 0.2vw var(--border-purple);
+	font-size: 1vw;
+	font-weight: 600;
+	color: var(--font-color);
+	cursor: pointer;
+  padding: 10px;
+  }
+
+.flip-card__btn:hover {
+	background-color: var(--index-red);
+	color: var(--black);
+	transform: scale(1.2);
+	box-shadow: 0.3vw 0.3vw var(--border-purple);
+} 
+
+/* En tu archivo CSS */
+.success-msg {
+  color: black !important;
+  background-color: var(--neon-green) !important;
+}
+
+.error-msg {
+  color: black !important;
+  background-color: var(--arcade-red) !important;
+}
+  
+  @media (max-width: 1023px) {
+	
+    .wrapper {
+        width: 250%;
+        margin: 10vh -75%;
+    }
+	
+    .flip-card__front, .flip-card__back {
+        padding: 10px; 
+		
+    }
+
+    .title{
+      font-size: 2.5vh;
+    }
+
+    .flip-card__input{
+        font-size: 2vh;
+    }
+
+    .flip-card__btn{
+        font-size: 1.5vh;
+        padding: 10px;
+    }
+
+  #login-msg{
+    font-size: 2vh;
+  }
+}

@@ -1,0 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   edit-profile.css                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adpachec <adpachec@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/27 13:53:56 by adpachec          #+#    #+#             */
+/*   Updated: 2024/05/07 11:24:49 by adpachec         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+.card {
+	display: flex;
+    background: var(--black);
+	opacity: 0.98;
+    box-shadow: 0 0px 10px var(--electric-blue) !important;
+	color: white;
+	align-items: center;
+}
+
+.edit-profile-form{
+	gap: 10px;
+}
+
+.card-header{
+	display: flex;
+	text-align: center !important;
+	margin-bottom: 3vh !important;
+	font-size: 4vh !important;
+}
+
+#picture-group{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+.img-thumbnail {
+	
+	border-radius: 4px;
+	padding: 0.25rem;
+	background-color: transparent;
+	border: 4px solid #dee2e6;
+	height: 200px;
+	overflow: visible;
+  }
+  

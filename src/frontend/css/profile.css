@@ -1,0 +1,360 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   profile.css                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adpachec <adpachec@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/12 12:46:57 by adpachec          #+#    #+#             */
+/*   Updated: 2024/05/29 10:56:16 by adpachec         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+.profile-container {
+	max-width: 800px;
+	margin: 5vh auto;
+	padding: 20px;
+	color: var(--electric-blue);
+	background: var(--black);
+	border-radius: 2vh;
+	opacity: 0.98;
+  }
+  
+  .profile-header {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+  }
+  
+  .profile-avatar {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	border: 3px solid var(--electric-blue);
+	box-shadow: 0px 0px 10px var(--electric-blue);
+  }
+  
+  .profile-username {
+	font-size: 2em;
+  }
+  
+  /* Stats */
+  .stats-content, .history-content {
+	display: none;
+	margin-top: 10px;
+	background: rgba(0, 0, 0, 0.8);
+	padding: 10px;
+	border-radius: 5px;
+  }
+  
+  .stats-content.active, .history-content.active {
+	display: block;
+  }
+  
+  .stats-toggler, .history-toggler {
+	background: var(--index-red);
+	color: var(--white);
+	border: none;
+	padding: 10px;
+	margin-top: 20px;
+	cursor: pointer;
+	font-size: 1em;
+	border-radius: 2vh;
+  }
+  
+  .stats-toggler:hover, .history-toggler:hover {
+	background: var(--electric-blue);
+  }
+
+/* History */
+.table {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid var(--retro-purple);
+}
+
+.table thead th {
+    background: var(--electric-blue);
+    color: var(--white);
+}
+
+.table tbody td.win {
+    color: var(--neon-green);
+}
+
+.table tbody td.loss {
+    color: var(--arcade-red);
+}
+
+/* fFriends */
+
+.friends-section {
+    margin-top: 2rem;
+    padding: 1rem;
+	background-color: transparent;
+    border-radius: 8px;
+}
+
+.friends-button {
+	background: var(--index-red);
+	color: var(--white);
+	border: none;
+	padding: 10px;
+	margin-top: 20px;
+	cursor: pointer;
+	font-size: 1em;
+	border-radius: 2vh;
+}
+
+.section-title {
+    color: var(--electric-blue);
+    margin-bottom: 1rem;
+}
+
+.friends-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.friend-entry {
+    flex: 1 1 48%;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-color);
+    padding: 10px;
+    box-shadow: 0 0px 10px #7200DA;
+}
+
+.friend-entry:hover {
+	transform: scale(1.05);
+	background-color: var(--black);
+    cursor: pointer;
+}
+
+.friend-entry a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.friend-avatar {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.friend-avatar.online {
+    border: 5px solid var(--neon-green);
+}
+
+.friend-avatar.offline {
+    border: 5px solid transparent;
+}
+
+.toggle-button {
+	background: var(--index-red);
+	color: var(--white);
+	border: none;
+	padding: 10px;
+	margin-top: 20px;
+	cursor: pointer;
+	font-size: 1em;
+	border-radius: 2vh;
+}
+
+.toggle-button:hover {
+    background-color: var(--electric-blue);
+}
+
+.add-friend-form input {
+	border: none;
+	padding: 10px;
+	margin-top: 20px;
+	cursor: pointer;
+	font-size: 1em;
+	border-radius: 2vh;
+}
+
+.add-friend-form button {
+	background: var(--index-red);
+	color: var(--white);
+	border: none;
+	padding: 10px;
+	margin-top: 20px;
+	cursor: pointer;
+	font-size: 1em;
+	border-radius: 2vh;
+}
+
+.add-friend-form button:hover {
+    background-color: var(--electric-blue);
+}
+
+.friend-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.friend-avatar {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.friend-username {
+    color: #f1f1f1;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.friend-btn-group {
+    display: flex;
+    align-items: center;
+}
+
+.delete-friend-btn, .accept-friend-btn, .pending {
+    background-color: #444;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-friend-btn:hover {
+    background-color: #e74c3c;
+}
+
+.accept-friend-btn:hover {
+    background-color: #2ecc71;
+}
+
+.pending {
+    background-color: #f39c12;
+}
+
+.pending::after {
+    content: ' Pending';
+    font-size: 0.9em;
+    color: #fff;
+}
+
+.friend-entry a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.friend-entry a:hover .friend-username {
+    text-decoration: underline;
+}
+
+.friend-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.friend-username {
+    color: var(--white);
+    font-weight: bold;
+}
+
+.notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: var(--neon-green);
+    color: var(--black);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s, top 0.5s;
+}
+
+.notification.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+#upload-picture{
+    background-color: var(--retro-purple) !important;
+}
+#upload-picture:hover{
+    background-color: var(--border-purple) !important;
+    transform: scale(1.1);
+}
+
+#upload-picture, #save-profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 60px;
+    padding: 5px 10px;
+}
+
+.btn-secondary span{
+    white-space: normal;
+    text-align: center;
+}
+
+
+.friend-btn-group {
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1023px) {
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-secondary, .btn-primary {
+        margin-bottom: 10px;
+    }
+
+    .btn-secondary{
+        font-size: 2vh;
+    }
+}

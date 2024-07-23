@@ -1,0 +1,255 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   style.css                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adpachec <adpachec@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/04 14:24:42 by adpachec          #+#    #+#             */
+/*   Updated: 2024/04/22 13:26:29 by adpachec         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --electric-blue: #0044FF;
+    --retro-purple: #7200DA;
+    --border-purple: #470089;
+    --retro-purple-light: #9f5ac1;
+    --neon-green: #33FF00;
+    --arcade-red: #FF0000;
+	--dark-arcade-red: #E4000F;
+	--index-red: #a62543;
+}
+
+* {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* body */
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../images/indexWallpaper.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--white);
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    width: 100%;
+}
+
+/* Main content */
+.main-content {
+    min-height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Hero Section */
+.hero-section {
+	/* transform: translate(0, 100%); */
+    color: var(--white);
+    text-align: center;
+    min-height: 80vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes glowing {
+	0% {
+		text-shadow: 0 0 5px var(--border-purple);
+	}
+	50% {
+		text-shadow: 0 0 10px var(--border-purple), 0 0 10px var(--border-purple), 0 0 20px var(--border-purple), 0 0 30px var(--border-purple);
+	}
+	100% {
+		text-shadow: 0 0 5px var(--border-purple);
+	}
+}
+
+@keyframes box-glowing {
+	0% {
+		box-shadow: 0 0 5px var(--border-purple);
+	}
+	50% {
+		box-shadow: 0 0 5px var(--border-purple), 0 0 10px var(--border-purple), 0 0 20px var(--border-purple);
+	}
+	100% {
+		box-shadow: 0 0 5px var(--border-purple);
+	}
+}
+
+.hero-section h1,
+.hero-section p {
+	animation: glowing 10s infinite ease-in-out;
+}
+
+.hero-section h1 {
+    font-size: 2.4vw;
+	font-family: 'Press Start 2P', cursive;
+	margin-bottom: 3vh;
+}
+
+.hero-section p {
+    font-size: 1vw;
+	font-family: 'Press Start 2P', cursive;
+	margin-bottom: 4vh;
+}
+
+/* Botones */
+.btn-primary {
+	font-size: 1vw;
+	font-family: 'Press Start 2P', cursive;
+    background-color: var(--index-red);
+    border-color: var(--index-red);
+	text-align: center;
+	animation: box-glowing 10s infinite ease-in-out;
+	padding: 1vw 1vw;
+}
+
+.btn-primary:hover {
+    background-color: var(--neon-green);
+    border-color: var(--index-red);
+	color: #000000;
+	animation: box-glowing 10s infinite ease-in-out;
+    transform: scale(1.1);
+}
+
+/* Partners Section */
+.partners-section {  
+    color: var(--white);
+    margin-top: 50vh;
+    width: 100%;
+}
+
+.partners-section .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.partners-section h2 {
+    font-size: 2.5vh;
+    text-align: center;
+    text-shadow: 0 0px 25px var(--neon-green);
+}
+
+.partners-section hr {
+    border: 0;
+    height: 0.5vh;
+    width: 100%;
+    background-color: white;
+    color: white;
+}
+
+/* Ajustes para los colaboradores */
+.partners-section .card {
+    flex: 0 1 auto;
+    margin: 10px;
+    background-color: var(--black);
+    border: none;
+}
+
+.partners-section .card-img-top {
+    transition: transform 0.3s ease;
+    max-width: 100%;
+    max-height: 12vh;
+    object-fit: cover;
+    filter: invert(50%);
+    
+}
+
+.partners-section .card-img-top:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 1023px) {
+    .navbar-nav .nav-link, .btn-outline-success, .btn-outline-danger {
+        font-size: 1.25vh; 
+    }
+
+    .hero-section{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .hero-section h1{
+        font-size: 1.75vh;
+    }
+    
+    .hero-section p{
+        font-size: 1vh;
+    }
+
+    .btn-primary{
+        font-size: 1.25vh;
+    }
+
+    .btn-outline-success {
+        background-color: var(--electric-blue);
+        border-color: var(--electric-blue);
+        color: white;
+    }
+    
+    .btn-outline-success:hover {
+        background-color: var(--neon-green);
+        border-color: var(--electric-blue);
+        color: var(--black);
+    }
+    
+    .btn-outline-danger {
+        background-color: var(--retro-purple);
+        border-color: var(--retro-purple);
+        color: white;
+        margin-top: 1vh;
+    }
+    
+    .btn-outline-danger:hover {
+        background-color: var(--neon-green);
+        border-color: var(--retro-purple);
+        color: var(--black);
+    }
+
+    .partners-section h2 {
+        font-size: 1vh;
+    }
+
+    .partners-section hr{
+        visibility: hidden;
+    }
+    
+    .partners-section .card-img-top {
+        height: 2vh;
+        width: 100vw;
+        object-fit: contain;
+        filter: invert(50%);
+    }
+    
+    .partners-section .card {
+        background-color: var(--black);
+        border: none;
+    }
+
+}
