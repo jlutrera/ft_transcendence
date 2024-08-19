@@ -6,7 +6,7 @@
 #    By: jutrera- <jutrera-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 12:37:59 by alaparic          #+#    #+#              #
-#    Updated: 2024/07/20 14:45:09 by jutrera-         ###   ########.fr        #
+#    Updated: 2024/08/19 18:50:30 by jutrera-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,8 +79,10 @@ def local_match(request, formData: localMatchSchema):
     return {"msg": "ok"}
 
 
-@app.post("auth/login", tags=['Auth'])
+@app.post("auth/login", tags=['Auth'], response={200: SuccessSchema, 400: ErrorSchema})
 def login_user(request, login_in: LoginSchema):
+    if request.user.is_authenticated and request.user.online:
+        return 400, {"error_msg": "User already logged in"}
     user = authenticate(request, username=login_in.username,
                         password=login_in.password)
     if user is not None:
@@ -89,7 +91,7 @@ def login_user(request, login_in: LoginSchema):
         user.save()
         return {"msg": "Login successful"}
     else:
-        return {"error_msg": "Login failed"}
+        return 400, {"error_msg": "Login failed"}
 
 
 @app.get("auth/logout", tags=['Auth'])
@@ -176,7 +178,7 @@ def update_avatar(request, file: UploadedFile = File(...)):
 
     # Delete previous avatar unless default
     if request.user.profilePicture != "/api/static/avatars/default.jpg":
-        os.remove(request.user.profilePicture)
+        os.remove("/app" + request.user.profilePicture)
 
     # Save the uploaded image
     relative_file_route = os.path.join("api", "static", "avatars",
@@ -343,7 +345,7 @@ def leave_tournament(request, tournament_id: int):
     if not UserTournament.objects.filter(user=user, tournament=tournament).exists():
         return 400, {"error_msg": "User not in tournament"}
 
-    if tournament.status == "Ended":
+    if tournament.status == "ended":
         return 400, {"error_msg": "Tournament has ended"}
 
     # If tournament is in progress, user looses unplayed matches
@@ -385,6 +387,7 @@ def get_user_matches(request):
                 "matchID": match.matchID,
                 "tournamentID": match.tournament.tournamentID,
                 "tournamentName": match.tournament.name,
+                "played": match.winner is not None,
                 "player1_username": user.username,
                 "player2_username": opponent.username
             })
@@ -569,12 +572,9 @@ def save_match(request, id_match: int, id_tournament: int):
         user2.save()
 
         # tournament data
-        # TODO -> finish this!!
         if id_tournament != 0:
             tournament = get_object_or_404(
                 Tournament, tournamentID=id_tournament)
-            tournament.status = "ended"
-            tournament.save()
         else:
             tournament = None
 
@@ -583,11 +583,17 @@ def save_match(request, id_match: int, id_tournament: int):
             matchToSave = Match.objects.create(user1=user1, user2=user2)
         else:
             matchToSave = get_object_or_404(Match, matchID=match.id)
+            if (matchToSave.user1.username != user1.username):
+                matchToSave.user1 = user1
+            if (matchToSave.user2.username != user2.username):
+                matchToSave.user2 = user2
         matchToSave.pointsUser1 = match.paddles.score1
         matchToSave.pointsUser2 = match.paddles.score2
         matchToSave.winner = matchWinner
         matchToSave.tournament = tournament
         matchToSave.save()
+        if id_tournament != 0:
+            checkTournamentFinished(tournament)
         return 200, {"msg": "Match saved"}
     except RemoteGame.DoesNotExist:
         return 200, {"msg": "Match was saved before"}
